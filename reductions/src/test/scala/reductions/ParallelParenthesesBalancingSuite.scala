@@ -45,5 +45,12 @@ class ParallelParenthesesBalancingSuite extends FunSuite {
     check(").", false)
   }
 
+  test("parBalance") {
+    val chars = "(((())))".toCharArray
+    println(parBalance(chars, 2))
+    println(parBalance("((()()()))".toCharArray, 4))
+    println(parBalance(")))((())(".toCharArray, 3))
+
+  }
 
 }

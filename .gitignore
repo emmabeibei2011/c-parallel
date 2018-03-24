@@ -2,3 +2,5 @@
 *.log
 */project/
 */target/
+.idea/
+*/.idea/
