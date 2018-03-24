@@ -44,7 +44,7 @@ object VerticalBoxBlur {
    */
   def blur(src: Img, dst: Img, from: Int, end: Int, radius: Int): Unit = {
     // TODO implement this method using the `boxBlurKernel` method
-    for (j <- 0 until src.height; i <- from until end) {
+    for (i <- from until end; j <- 0 until src.height) {
       dst(i, j) = boxBlurKernel(src, i, j, radius)
     }
   }
