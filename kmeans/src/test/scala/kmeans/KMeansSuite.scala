@@ -71,6 +71,24 @@ class KMeansSuite extends FunSuite {
     checkParClassify(points, means, expected)
   }
 
+  test("'kmeans' should work for 'points' == GenSeq((0, 0, 1), (0, 0, -1), (0, 1, 0), (0, 10, 0))") {
+    val p1 = new Point(0, 0, 1)
+    val p2 = new Point(0, 0, -1)
+    val p3 = new Point(0, 1, 0)
+    val p4 = new Point(0, 10, 0)
+    val points: GenSeq[Point] = IndexedSeq(p1, p2, p3, p4)
+    val m1 = new Point(0, -1, 0)
+    val m2 = new Point(0, 2, 0)
+    val oldmeans = IndexedSeq(m1, m2)
+    val eta = 12.25
+
+    val m3 = new Point(0.0, 0.0, 0.0)
+    val m4 = new Point(0.0, 5.5, 0.0)
+    val expected: List[Point] = GenSeq(m3, m4).toList
+    val kmeans: List[Point] = kMeans(points, oldmeans, eta).toList
+    assert(expected.zip(kmeans).forall{ case (p1, p2) => p1.equal(p2) })
+  }
+
 }
 
 
